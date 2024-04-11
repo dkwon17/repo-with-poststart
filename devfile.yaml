@@ -1,0 +1,20 @@
+schemaVersion: 2.2.2
+metadata:
+  generateName: repo-with-poststart
+components:
+  - name: tools
+    container:
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
+commands:
+  - id: kubectl_aliases
+    exec:
+      label: "Package"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/quarkus-api-example
+      commandLine: "echo hello > ~/.kubectl_aliases"
+      group:
+        kind: build
+        isDefault: true
+events:
+  postStart:
+    - package
