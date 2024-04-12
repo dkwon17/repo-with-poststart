@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      image: quay.io/dkwon17/test:udi
 commands:
   - id: create
     exec:
